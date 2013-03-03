@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>domch.js test $</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <!--
+  <script type="application/javascript;version=1.5">alert(1.5);</script>
+  <script type="text/javascript;version=1.7">alert(1.7);</script>
+  <script type="application/javascript;version=1.8">alert(1.8);</script>
+  <script type="application/javascript;version=1.9">alert(1.9);</script>
+  -->
+
+	<script type="application/javascript;version=1.8" src="domch.js"></script>
+
+  <script type="text/javascript">
+			var x = document.getElementById('somelink');
+			try{
+        x.innerHTML = 'this will not work!';
+      }catch(ex){
+        //alert(ex);
+      }
+  </script>
+
+	<script type="text/javascript">
+	  var $ = make$(content.document);
+		function foo1(){
+			//alert( ('$ is a ' + typeof $) + '\n' + ('domch is a ' + typeof domch) );
+			var x = document.getElementById('somelink');
+			x.innerHTML = 'Cool';
+		}
+		function foo2(){
+			//alert( ('$ is a ' + typeof $) + '\n' + ('domch is a ' + typeof domch) );
+			var x = document.getElementById('somelink');
+			x.innerHTML += '<br>Cooler Than Cool';
+		}
+
+    //$.doc.on('DOMContentLoaded', foo1);
+		$.ready(foo1);
+		$.ready(foo2);
+		
+	</script>
+
+
+
+
+	<base href="" target="_blank"/>
+
+<link rel="icon" type="image/gif" href="script_edit.gif">
+
+</head>
+<body>
+
+  <!--start of body-->
+
+  <div id="main" class="mainX"><!-- main page content -->
+  
+    <div id="sub2" class="subdiv">
+      <span class="tag"><b>div #2</b> id=sub2 class=subdiv</span>
+      <p>some text...1 and a <a href="somewhere/file.htm" title="links to a missing file!">hyperlink</a></p>
+      <p>some text...2</p>
+      <p id="somelink">let's go to <a href="http://www.google.com">google</a></p>
+      <p>some text...4</p>
+    </div>
+  
+  </div>
+
+  <!--end of body-->
+
+	<script type="text/javascript">
+		/*document.onblur = function(){
+			alert('blur');
+		}*/
+	</script>
+</body>
+</html>
